@@ -16,19 +16,19 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
     return cb(arr[0]);
   }
 
-  // NOTES ON THE SOLUTION:
+  NOTES ON THE SOLUTION:
 
-  // firstItem is a higher order function.
-  // It expects a callback (referred to as `cb`) as its second argument.
-  // To test our solution, we can use the given `items` array and a variety of callbacks.
-  // Note how callbacks can be declared separately, or inlined.
+  firstItem is a higher order function.
+  It expects a callback (referred to as `cb`) as its second argument.
+  To test our solution, we can use the given `items` array and a variety of callbacks.
+  Note how callbacks can be declared separately, or inlined.
 
-  // TEST 1 (inlined callback):
+  TEST 1 (inlined callback):
 
   const test1 = firstItem(items, item => `I love my ${item}!`);
   console.log(test1); // "I love my Pencil!"
 
-  // TEST 2 (declaring callback before hand):
+  TEST 2 (declaring callback before hand):
 
   function logExorbitantPrice(article) {
     return `this ${article} is worth a million dollars!`;
@@ -73,7 +73,20 @@ multiplyNums(5, 10, product => {
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)){
+    return cb(true);
+  } else {
+    return cb(false);
+  }
 }
+contains('yo-yo', items, function(result){
+  console.log(result);
+})
+
+
+
+
+
 
 /* STRETCH PROBLEM */
 
